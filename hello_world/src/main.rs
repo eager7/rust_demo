@@ -8,6 +8,7 @@ fn main() {
     _string();
     _struct();
     _enum();
+    _func();
 }
 
 fn _hello() {
@@ -181,4 +182,15 @@ fn _enum() {
 
     let x = Message::Quit;
     println!("x:{:?}", x);
+}
+
+fn _func() {
+    assert_eq!(f1(1), f2(1));
+}
+
+fn f1(v: i32) -> i32 {
+    return v + 1;
+}
+fn f2(v: i32) -> i32 {
+    v + 1
 }
