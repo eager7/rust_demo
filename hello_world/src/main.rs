@@ -9,6 +9,7 @@ fn main() {
     _struct();
     _enum();
     _func();
+    f3();
 }
 
 fn _hello() {
@@ -193,4 +194,17 @@ fn f1(v: i32) -> i32 {
 }
 fn f2(v: i32) -> i32 {
     v + 1
+}
+fn f3() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        };
+    };
+
+    println!("The result is {}", result);
 }
