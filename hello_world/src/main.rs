@@ -19,7 +19,7 @@ fn _hello() {
     let a2: i32 = 5;
     assert_eq!(a1, a2);
 
-    a1 = 6;
+    a1 = 6_6_6; // 下划线是间隔符，会被忽略
 
     println!("a1:{:?}", a1);
     let a1 = a1; // 重新变为常量
