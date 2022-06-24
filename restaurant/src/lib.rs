@@ -7,7 +7,7 @@ mod tests {
     }
 }
 
-mod front_of_house; // 外部文件
+pub mod front_of_house; // 外部文件
 mod back_of_house;
 
 use crate::front_of_house::hosting;
