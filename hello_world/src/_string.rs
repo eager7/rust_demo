@@ -18,4 +18,7 @@ fn string() {
     println!("push:{:?}", s);
 
     assert_eq!(s.pop(), Some('d'));
+
+    println!("{}", "hello".to_string() + &"world".to_string());
+    println!("{}", format!("{}-{}-{}", "a", "b", "c"))
 }
