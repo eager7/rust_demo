@@ -16,5 +16,10 @@ init:
 run:
 	cargo run
 
+test:
+	cargo test -- --show-output --test-threads=1 --include-ignored
+test_ignore:
+	cargo test -- --show-output --test-threads=1 --ignored
+
 clean:
 	-rm -rf build target Cargo.*

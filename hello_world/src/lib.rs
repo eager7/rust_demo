@@ -10,3 +10,5 @@ mod _vector;
 mod _map;
 mod error;
 mod generic;
+mod _trait;
+mod lifetime;

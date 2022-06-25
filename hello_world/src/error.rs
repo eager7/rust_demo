@@ -4,6 +4,7 @@ use std::io;
 use std::io::{ErrorKind, Read};
 
 #[test]
+#[should_panic]
 fn error () {
     f1();
 }
@@ -32,11 +33,13 @@ fn result () {
 }
 
 #[test]
+#[should_panic]
 fn unwrap() {
     let f = File::open("h.txt").unwrap();
 }
 
 #[test]
+#[should_panic]
 fn expect() {
     let f = File::open("h.txt").expect("not found");
 }
