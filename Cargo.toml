@@ -1,0 +1,9 @@
+[workspace]
+members = [
+    "control_flow",
+    "hello_world",
+    "guessing",
+    "mgrep",
+    "ownership",
+    "restaurant",
+]
