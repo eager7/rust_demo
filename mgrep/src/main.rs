@@ -1,11 +1,9 @@
-use std::{env, process};
 use mgrep;
+use std::{env, process};
 
 fn main() {
     println!("Hello, mgrep!");
-    let args: Vec<String> = env::args().collect();
-    println!("args:{:?}", args);
-    let config = mgrep::Config::new(&args).unwrap_or_else(|err| {
+    let config = mgrep::Config::new(env::args()).unwrap_or_else(|err| {
         eprintln!("config err:{}", err);
         process::exit(1);
     });

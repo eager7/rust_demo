@@ -17,6 +17,6 @@ fn longest_example() {
     let s1 = "hello".to_string();
     let s2 = "world".to_string();
 
-    let result = longest(&s1,&s2);
+    let result = longest(&s1, &s2);
     println!("{}", result);
 }

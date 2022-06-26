@@ -5,7 +5,7 @@ use std::io::{ErrorKind, Read};
 
 #[test]
 #[should_panic]
-fn error () {
+fn error() {
     f1();
 }
 
@@ -13,21 +13,21 @@ fn f1() {
     f2();
 }
 
-fn f2 () {
+fn f2() {
     panic!("panic f2")
 }
 
 #[test]
-fn result () {
+fn result() {
     let f = File::open("hello.txt");
     let f = match f {
-        Ok(file)=>file,
-        Err(e)=>match e.kind() {
+        Ok(file) => file,
+        Err(e) => match e.kind() {
             ErrorKind::NotFound => match File::create("hello.txt") {
-                Ok(fc)=>fc,
-                Err(ee)=>panic!("{}", ee),
+                Ok(fc) => fc,
+                Err(ee) => panic!("{}", ee),
             },
-            other_error=>panic!("other"),
+            other_error => panic!("other"),
         },
     };
 }
@@ -47,10 +47,10 @@ fn expect() {
 #[test]
 fn read() {
     let ret = read_file();
-    println!("{:?}",ret);
+    println!("{:?}", ret);
 }
 
-fn read_file()->Result<String, io::Error> {
+fn read_file() -> Result<String, io::Error> {
     let mut f = File::open("hello.txt")?;
     let mut s = String::new();
     f.read_to_string(&mut s)?;
