@@ -1,1 +1,3 @@
-pub fn add_to_wait_list() {println!("add_to_wait_list")}
+pub fn add_to_wait_list() {
+    println!("add_to_wait_list")
+}

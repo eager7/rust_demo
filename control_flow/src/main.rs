@@ -63,12 +63,12 @@ fn _match() {
         println!("did not match number");
     }
     while let Some(i) = optional {
-        if i>9{
+        if i > 9 {
             println!("bigger than 9");
             optional = None;
         } else {
-            println!("i:{:?}",i);
-            optional = Some(i+1);
+            println!("i:{:?}", i);
+            optional = Some(i + 1);
         }
     }
 }

@@ -7,11 +7,11 @@ mod tests {
     }
 }
 
-pub mod front_of_house; // 外部文件
 mod back_of_house;
+pub mod front_of_house; // 外部文件
 
 use crate::front_of_house::hosting;
-pub fn eat_at_restaurant () {
+pub fn eat_at_restaurant() {
     crate::front_of_house::hosting::add_to_wait_list();
     front_of_house::hosting::add_to_wait_list();
     hosting::add_to_wait_list();
@@ -31,4 +31,3 @@ pub fn eat_at_restaurant () {
 }
 
 fn serve_order() {}
-

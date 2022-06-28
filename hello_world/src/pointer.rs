@@ -1,15 +1,15 @@
-use std::ops::Deref;
 use crate::pointer::List::Cons;
+use std::ops::Deref;
 
-struct MyBox<T> (T);
+struct MyBox<T>(T);
 
-impl <T> MyBox<T> {
-    fn new(x:T)->MyBox<T> {
+impl<T> MyBox<T> {
+    fn new(x: T) -> MyBox<T> {
         return MyBox(x);
     }
 }
 
-impl <T> Deref for MyBox<T> {
+impl<T> Deref for MyBox<T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
@@ -28,7 +28,7 @@ fn my_box() {
 
 #[derive(Debug)]
 struct SmartDrop {
-    data:String,
+    data: String,
 }
 
 impl Drop for SmartDrop {
@@ -39,24 +39,28 @@ impl Drop for SmartDrop {
 
 #[test]
 fn drop_example() {
-    let a = SmartDrop{data:"a".to_string()};
+    let a = SmartDrop {
+        data: "a".to_string(),
+    };
     println!("ex a:{:?}", a);
 
     {
-        let b = SmartDrop{data:"b".to_string()};
+        let b = SmartDrop {
+            data: "b".to_string(),
+        };
         drop(b);
     }
     println!("exit");
 }
 
-enum List{
+enum List {
     Cons(i32, std::rc::Rc<List>),
     Nil,
 }
 use std::rc::Rc;
 #[test]
 fn list_example() {
-    let l = Rc::new(Cons(5,Rc::new(Cons(6,Rc::new(List::Nil)))));
+    let l = Rc::new(Cons(5, Rc::new(Cons(6, Rc::new(List::Nil)))));
     println!("count after creating l = {}", Rc::strong_count(&l));
     let a = Cons(1, std::rc::Rc::clone(&l));
     println!("count after creating l = {}", Rc::strong_count(&l));
@@ -66,5 +70,4 @@ fn list_example() {
     println!("count after creating l = {}", Rc::strong_count(&l));
     drop(b);
     println!("count after creating l = {}", Rc::strong_count(&l));
-
 }

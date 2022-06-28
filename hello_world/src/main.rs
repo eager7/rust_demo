@@ -1,7 +1,7 @@
 use hello_world;
+use restaurant;
 use std::cell::Cell;
 use std::fmt;
-use restaurant;
 
 fn main() {
     println!("Hello, world!");
