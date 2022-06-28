@@ -14,5 +14,6 @@ mod generic;
 pub mod hello;
 mod iter;
 mod lifetime;
+mod marco;
 mod pointer;
 mod thread;

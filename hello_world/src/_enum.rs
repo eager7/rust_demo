@@ -19,3 +19,16 @@ fn _enum() {
     let x = Message::Quit;
     println!("x:{:?}", x);
 }
+
+#[test]
+fn _enum2() {
+    #[derive(PartialOrd, PartialEq)]
+    pub enum Level {
+        Error = 1,
+        Warn,
+        Info,
+        Debug,
+        Trace,
+    }
+    println!("{:?}", Level::Error < Level::Debug);
+}
