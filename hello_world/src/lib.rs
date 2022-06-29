@@ -17,3 +17,4 @@ mod lifetime;
 mod marco;
 mod pointer;
 mod thread;
+mod _type;
