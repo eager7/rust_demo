@@ -1,3 +1,4 @@
+#![feature(core_intrinsics)]
 extern crate core;
 
 mod _array;
