@@ -1,28 +1,35 @@
-// 日志打印颜色
-const cRed: i32 = 91;
-const cGreen: i32 = 92;
-const cYellow: i32 = 93;
-const cBlue: i32 = 94;
-const cMagenta: i32 = 95;
-const cBlueLight: i32 = 96;
-const prefix: &str = "\x1b[";
-const suffix: &str = "\x1b[0m";
+#![allow(unused_macros)]
 
-pub fn debug() {
-    println!("{}", format!("{}", 1));
+use chrono::Local;
+use std::io;
+#[macro_export]
+macro_rules! debug {
+    () => ({
+        let line = line!();
+        let file = file!();
+        let _ = $crate::output("DEBUG",file,line,String::new());
+    });
+    ($($arg:tt)*) => ({
+        let line = line!();
+        let file = file!();
+        let value = format!($($arg)*);
+        let _ = $crate::output("DEBUG",file,line,value);
+    })
+}
+pub fn output(level: &str, file: &str, line: u32, mut fmt: String) -> io::Result<()> {
+    let file_line = if file.len() > 0 {
+        format!("{}({}):", file, line)
+    } else {
+        String::new()
+    };
+    println!("{}", format!(
+        "\x1b[32m[{}{}]{} {}\x1b[0m",
+        Local::now().format("%Y-%m-%d %H:%M:%S%.3f ").to_string(),
+        level,  file_line, fmt));
+    return Ok(());
 }
 
-#[cfg(test)]
-mod tests {
-    use crate::debug;
-
-    #[test]
-    fn it_works() {
-        let result = 2 + 2;
-        assert_eq!(result, 4);
-    }
-    #[test]
-    fn d() {
-        debug();
-    }
+#[test]
+fn ex() {
+    debug!();
 }

@@ -6,5 +6,6 @@ members = [
     "mgrep",
     "ownership",
     "restaurant",
+    "log_test",
     "elog"
 ]
