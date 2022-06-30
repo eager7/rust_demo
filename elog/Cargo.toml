@@ -1,8 +1,13 @@
 [package]
-name = "elog"
-version = "0.1.0"
+name = "eager_log"
+version = "0.1.1"
 edition = "2021"
-
+license = "MIT"
+description="chandlerpan log"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+[dependencies.chrono]
+version = "0.4.16"
+features = ["serde", "clock"]
