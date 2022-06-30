@@ -2,8 +2,8 @@
 
 use chrono::Local;
 use std::io;
-
-mod color;
+#[macro_use]
+pub mod color;
 
 #[macro_export]
 macro_rules! logger {
@@ -22,38 +22,38 @@ macro_rules! logger {
 
 #[macro_export]
 macro_rules! trace {
-    () => (logger!(color::Color::BrightGreen));
-    ($($arg:tt)*) => (logger!(color::Color::BrightCyan,$($arg)*))
+    () => (logger!($crate::color::Color::BrightGreen));
+    ($($arg:tt)*) => (logger!($crate::color::Color::BrightCyan,$($arg)*))
 }
 
 #[macro_export]
 macro_rules! notice {
-    () => (logger!(color::Color::BrightGreen));
-    ($($arg:tt)*) => (logger!(color::Color::BrightGreen,$($arg)*))
+    () => (logger!($crate::color::Color::BrightGreen));
+    ($($arg:tt)*) => (logger!($crate::color::Color::BrightGreen,$($arg)*))
 }
 
 #[macro_export]
 macro_rules! debug {
-    () => (logger!(color::Color::BrightBlue));
-    ($($arg:tt)*) => (logger!(color::Color::BrightBlue,$($arg)*))
+    () => (logger!($crate::color::Color::BrightBlue));
+    ($($arg:tt)*) => (logger!($crate::color::Color::BrightBlue,$($arg)*))
 }
 
 #[macro_export]
 macro_rules! info {
-    () => (logger!(color::Color::BrightYellow));
-    ($($arg:tt)*) => (logger!(color::Color::BrightYellow,$($arg)*))
+    () => (logger!($crate::color::Color::BrightYellow));
+    ($($arg:tt)*) => (logger!($crate::color::Color::BrightYellow,$($arg)*))
 }
 
 #[macro_export]
 macro_rules! warn {
-    () => (logger!(color::Color::BrightMagenta));
-    ($($arg:tt)*) => (logger!(color::Color::BrightMagenta,$($arg)*))
+    () => (logger!($crate::color::Color::BrightMagenta));
+    ($($arg:tt)*) => (logger!($crate::color::Color::BrightMagenta,$($arg)*))
 }
 
 #[macro_export]
 macro_rules! error {
-    () => (logger!(color::Color::Red));
-    ($($arg:tt)*) => (logger!(color::Color::Red,$($arg)*))
+    () => (logger!($crate::color::Color::Red));
+    ($($arg:tt)*) => (logger!($crate::color::Color::Red,$($arg)*))
 }
 
 pub fn output(level: color::Color, file: &str, line: u32, content: String) -> io::Result<()> {
