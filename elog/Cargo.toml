@@ -1,5 +1,5 @@
 [package]
-name = "elog"
+name = "eager_log"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
