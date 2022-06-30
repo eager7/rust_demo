@@ -5,7 +5,7 @@ fn main() {
     wd_log_ex();
 }
 
-fn wd_log_ex(){
+fn wd_log_ex() {
     //Set log level, default:Debug
     wd_log::set_level(wd_log::DEBUG);
     //Set the log output prefix, default:"wd_log"

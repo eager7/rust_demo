@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 colored = "*"
 wd_log = "0.1"
+log = "0.4"
