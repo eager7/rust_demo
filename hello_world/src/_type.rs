@@ -1,4 +1,3 @@
-#![feature(core_intrinsics)]
 
 #[test]
 fn _type() {
