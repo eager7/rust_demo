@@ -85,3 +85,12 @@ fn iterator_method() {
         .sum();
     assert_eq!(18, sum);
 }
+
+#[test]
+fn take_ex() {
+    let sum = Counter::new();
+    let square = |i: u32| i * i;
+    for n in sum.map(square).take(10) {
+        println!("{}", n);
+    }
+}

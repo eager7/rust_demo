@@ -71,3 +71,23 @@ fn list_example() {
     drop(b);
     println!("count after creating l = {}", Rc::strong_count(&l));
 }
+fn print_type_name_of<T>(_: T) {
+    println!("{:?}", unsafe { std::intrinsics::type_name::<T>() })
+}
+
+#[test]
+fn ref_example() {
+    let r=&1;
+    let &a=r; // & 符相当于模式匹配，a匹配1
+    let a=*r;
+
+    println!("{:?},{:?},{:?},", r, &a, a);
+    print_type_name_of(r); // &i32
+    print_type_name_of(&a);// &i32
+    print_type_name_of(a);// i32
+
+    let ref a:i32;
+    // print_type_name_of(a);// use of possibly-uninitialized `a`
+    a = &1;
+    print_type_name_of(a);// &i32
+}
