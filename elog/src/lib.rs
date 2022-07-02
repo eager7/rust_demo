@@ -79,6 +79,7 @@ fn ex() {
     warn!("warn");
     error!("error");
     debug!("{}", 3);
+    info!("{:?}", vec![1,2,3]);
 
     let c: color::Color = String::from("bright blue").into();
     println!("{}", c.to_fg_str())
