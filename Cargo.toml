@@ -8,5 +8,6 @@ members = [
     "restaurant",
     "log_test",
     "elog",
+    "rusty-journal",
     "web_server"
 ]
